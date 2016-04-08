@@ -5,16 +5,16 @@
     <meta name="description" content="Catch the all the Big Fish in Final Fantasy 14.  Weather is updated in real time.  Color code fish of interest or ones you've caught and optionally filter by color.">
     <link href="favicon.ico" type="image/png" rel="icon">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
-    <link href="{{ CSS_FILE_PATH }}" rel="stylesheet" type="text/css">
-    <script src="/_ah/channel/jsapi"></script>
+    <link href="fisher.css" rel="stylesheet" type="text/css">
+    <script src="channel.js"></script>
     <script>
       var appengine = goog.appengine;
     </script>
-    <script src="{{ JS_FILE_PATH }}"></script>
+    <script src="fisher.js"></script>
   </head>
   <body>
     <script>
-      ff.fisher.Main.bootstrap('{{ USER_JSON }}');
+      ff.fisher.Main.bootstrap('{"signedIn":false,"admin":false}');
     </script>
   </body>
 </html>
