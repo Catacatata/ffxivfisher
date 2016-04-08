@@ -55178,12 +55178,12 @@ goog.inherits(ff.fisher.ui.UpdateTimer, goog.events.EventTarget);
 goog.addSingletonGetter(ff.fisher.ui.UpdateTimer);
 
 
-/**
+/**	
  * @type {number}
  * @const
  * @private
  */
-ff.fisher.ui.UpdateTimer.UPDATE_INTERVAL_MS_ = 1000;
+ff.fisher.ui.UpdateTimer.UPDATE_INTERVAL_MS_ = 10 * 1000;
 /**
  * Renders a time component.
  */
@@ -66886,7 +66886,7 @@ ff.fisher.ui.soy.ROOT = function(opt_data, opt_ignored) {
  * @notypecheck
  */
 ff.fisher.ui.soy.HEADER = function(opt_data, opt_ignored) {
-  return '<div class="ff-fisher-header ff-card"><div class="ff-fisher-header-clock-label">Eorzean Time:&nbsp;</div><div id="' + soy.$$escapeHtml(opt_data.ids.CLOCK_CONTAINER) + '" class="ff-fisher-header-clock"></div><div class="ff-fisher-header-weather-source"><a href="http://na.ff14angler.com/skywatcher/" target="_blank">Weather Source</a></div><div id="' + soy.$$escapeHtml(opt_data.ids.NEW_FISH_BUTTON_CONTAINER) + '" class="ff-fisher-header-new-fish"></div></div>';
+  return '<div class="ff-fisher-header ff-card"><div class="ff-fisher-header-clock-label">Eorzean Time:&nbsp;</div><div id="' + soy.$$escapeHtml(opt_data.ids.CLOCK_CONTAINER) + '" class="ff-fisher-header-clock"></div><div id="' + soy.$$escapeHtml(opt_data.ids.NEW_FISH_BUTTON_CONTAINER) + '" class="ff-fisher-header-new-fish"></div></div>';
 };
 
 
