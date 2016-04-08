@@ -27904,7 +27904,9 @@ ff.model.WeatherEnum = {
   'THUNDER': new ff.model.Weather(20, 'Thunder'),
   'THUNDERSTORMS': new ff.model.Weather(21, 'Thunderstorms'),
   'TORRENTIAL': new ff.model.Weather(22, 'Torrential'),
-  'WIND': new ff.model.Weather(23, 'Wind')
+  'WIND': new ff.model.Weather(23, 'Wind'),
+  'UMBRAL_WIND': new ff.model.Weather(24, 'Umbral Wind'),
+  'UMBRAL_STATIC': new ff.model.Weather(25, 'Umbral Static')
 };
 goog.provide('ff.model.Image');
 
@@ -38964,7 +38966,9 @@ ff.model.Region = {
   THE_BLACK_SHROUD: 'The Black Shroud',
   THANALAN: 'Thanalan',
   COERTHAS: 'Coerthas',
-  MOR_DHONA: 'Mor Dhona'
+  MOR_DHONA: 'Mor Dhona',
+  ABALATHIAS_SPINE: "Abalathia's Spine",
+  DRAVANIA: 'Dravania'
 };
 
 goog.provide('ff.model.Area');
@@ -39110,7 +39114,16 @@ ff.model.AreaEnum = {
 
   // Mor Dhona
   'MOR_DHONA': new ff.model.Area(
-      23, ff.model.Region.MOR_DHONA, 'Mor Dhona')
+      23, ff.model.Region.MOR_DHONA, 'Mor Dhona'),
+
+  // Heavensward
+  'AZYS_LLA': new ff.model.Area(24, ff.model.Region.ABALATHIAS_SPINE, 'Azys Lla'),
+  'SEA_OF_CLOUDS': new ff.model.Area(25, ff.model.Region.ABALATHIAS_SPINE, 'The Sea of Clouds'),
+  'DRAVANIAN_FORELANDS': new ff.model.Area(26, ff.model.Region.DRAVANIA, 'The Dravanian Forelands'),
+  'DRAVANIAN_HINTERLANDS': new ff.model.Area(27, ff.model.Region.DRAVANIA, 'The Dravanian Hinterlands'),
+  'CHURNING_MISTS': new ff.model.Area(28, ff.model.Region.DRAVANIA, 'The Churning Mists'),
+  'IDYLLSHIRE': new ff.model.Area(30, ff.model.Region.DRAVANIA, 'Idyllshire'),
+  'COERTHAS_WESTERN_HIGHLANDS': new ff.model.Area(29, ff.model.Region.COERTHAS, 'Coerthas Western Highlands')
 };
 
 goog.provide('ff.model.Location');
@@ -39426,7 +39439,28 @@ ff.model.LocationEnum = {
   'SINGING_SHARDS': new ff.model.Location(
       ff.model.AreaEnum.MOR_DHONA, 'Singing Shards', 50105),
   'THE_NORTH_SHARDS': new ff.model.Location(
-      ff.model.AreaEnum.MOR_DHONA, 'The North Shards', 50106)
+      ff.model.AreaEnum.MOR_DHONA, 'The North Shards', 50106),
+
+	// Heavensward
+	'THE_FLAGSHIP': new ff.model.Location(ff.model.AreaEnum.AZYS_LLA, 'The Flagship', 60207),
+	'THE_IRON_FEAST': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_FORELANDS, 'The Iron Feast', 70104),
+	'VOOR_SIAN_SIRAN': new ff.model.Location(ff.model.AreaEnum.SEA_OF_CLOUDS, 'Voor Sian Siran', 60101),
+	'CLEARPOOL': new ff.model.Location(ff.model.AreaEnum.COERTHAS_WESTERN_HIGHLANDS, 'Clearpool', 40204),
+	'WEST_BANEPOOL': new ff.model.Location(ff.model.AreaEnum.COERTHAS_WESTERN_HIGHLANDS, 'West Banepool', 40208),
+	'WHILOM_RIVER': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_FORELANDS, 'Whilom River', 70102),
+	'THE_HUNDRED_THROES': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_FORELANDS, 'The Hundred Throes', 70101),
+	'WESTON_WATERS': new ff.model.Location(ff.model.AreaEnum.CHURNING_MISTS, 'Weston Waters', 70303),
+	'GREYTAIL_FALLS': new ff.model.Location(ff.model.AreaEnum.COERTHAS_WESTERN_HIGHLANDS, 'Greytail Falls', 40202),
+	'UNFROZEN_POND': new ff.model.Location(ff.model.AreaEnum.COERTHAS_WESTERN_HIGHLANDS, 'Unfrozen Pond', 40203),
+	'THALIAK_RIVER': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_HINTERLANDS, 'Thaliak River', 70201),
+	'UPPER_THALIAK_RIVER': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_HINTERLANDS, 'Upper Thaliak River', 70203),
+	'THARL_OOM_KHASH': new ff.model.Location(ff.model.AreaEnum.CHURNING_MISTS, 'Tharl Oom Khash', 70306),
+	'EIL_TOHM': new ff.model.Location(ff.model.AreaEnum.CHURNING_MISTS, 'Eil Tohm', 70301),
+	'SOHM_AL_SUMMIT': new ff.model.Location(ff.model.AreaEnum.CHURNING_MISTS, 'Sohm Al Summit', 70305),
+	'THE_HABISPHERE': new ff.model.Location(ff.model.AreaEnum.AZYS_LLA, 'The Habisphere', 60206),
+	'MIDDLE_THALIAK_RIVER': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_HINTERLANDS, 'Middle Thaliak River', 70204),
+	'THE_PAPPUS_TREE': new ff.model.Location(ff.model.AreaEnum.AZYS_LLA, 'The Pappus Tree', 60205),
+	'THE_SMOLDERING_WASTES': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_FORELANDS, 'The Smoldering Wastes', 70103)
 };
 // Copyright 2006 The Closure Library Authors. All Rights Reserved.
 //
@@ -40189,17 +40223,7 @@ ff.service.FishService.prototype.loadAll = function() {
   this.fishLoading_ = true;
   goog.log.info(this.logger, 'Loading all fish.');
 
-  // Create the request URL.
-  var uri = new goog.Uri();
-  uri.setPath('fishes.json');
-
-  // Send the request.
-  var deferred = this.xhrService_.get(uri, true);
-
-  // Handle the response.
-  deferred.addCallback(this.onFishLoaded_, this);
-
-  return deferred;
+  this.onFishLoaded_(ffStaticFish);
 };
 
 
@@ -40352,8 +40376,8 @@ ff.service.FishService.prototype.onFishLoaded_ = function(fishesJson) {
     try {
       this.fish_.push(ff.model.Fish.fromJson(fishJson));
     } catch (e) {
-      // Catch the error so other fish still make it through.
-      goog.log.error(this.logger, 'Failed to build fish from JSON', e);
+      	// Catch the error so other fish still make it through.
+    	console.log('Error loading fish', fishJson, e);
     }
   }, this);
 
@@ -40697,7 +40721,7 @@ ff.service.WeatherService.prototype.weatherIndex = ["","CLEAR","FAIR","OVERCAST"
 	"Tension","OVERCAST","STORM_CLOUDS","Rough Seas","Rough Seas","LOUR","HEAT_WAVE","GLOOM","GALES","ERUPTIONS","CLEAR","CLEAR","CLEAR","CLEAR","CLEAR",
 	"Irradiance","Core Radiation","Core Radiation","Core Radiation","Core Radiation",
 	"Shelf Clouds","Shelf Clouds","Shelf Clouds","Shelf Clouds",
-	"Oppression","Oppression","Oppression","Oppression","Oppression","Umbral Wind","Umbral Static","Smoke","CLEAR","Royal Levin","Hyperelectricity","Royal Levin"];
+	"Oppression","Oppression","Oppression","Oppression","Oppression","UMBRAL_WIND","UMBRAL_STATIC","Smoke","CLEAR","Royal Levin","Hyperelectricity","Royal Levin"];
 
 ff.service.WeatherService.prototype.eorzeaToLocal = function(date) {
 	return new Date(date.getTime() / 20.571428571428573);
@@ -40755,6 +40779,8 @@ ff.service.WeatherService.prototype.calculateWeather = function() {
 		for (var i = 0; i < forecastTargets.length; i++) {
 			var forecastTarget = forecastTargets[i];
 			var rate = _.find(weatherRate, function(r) { return forecastTarget < r.rate; });
+			if (!rate)
+				console.error("Can't find weather rate for area", area);
 			var weatherKey = this.weatherIndex[rate.weather];
 			var id = ff.model.WeatherEnum[weatherKey].getClientIdentifier();
 			weather.push(id);
