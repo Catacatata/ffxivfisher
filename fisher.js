@@ -28184,7 +28184,13 @@ ff.model.Mooch.NAME_TO_CBH_ID_ = {
   'Ogre Barracuda': 58,
   'Silverfish': 90,
   'Storm Rider': 102,
-  'Striped Goby': 6
+  'Striped Goby': 6,
+  'Rudderfish': 405,
+  'Platinum Fish': 376,
+  'Bullfrog': 330,
+  'Blueclaw Shrimp': 322,
+  'Hedgemole Cricket': 357,
+  'Sky Faerie': 353
 };
 
 
@@ -39132,7 +39138,6 @@ ff.model.AreaEnum = {
   'DRAVANIAN_FORELANDS': new ff.model.Area(26, ff.model.Region.DRAVANIA, 'The Dravanian Forelands'),
   'DRAVANIAN_HINTERLANDS': new ff.model.Area(27, ff.model.Region.DRAVANIA, 'The Dravanian Hinterlands'),
   'CHURNING_MISTS': new ff.model.Area(28, ff.model.Region.DRAVANIA, 'The Churning Mists'),
-  'IDYLLSHIRE': new ff.model.Area(30, ff.model.Region.DRAVANIA, 'Idyllshire'),
   'COERTHAS_WESTERN_HIGHLANDS': new ff.model.Area(29, ff.model.Region.COERTHAS, 'Coerthas Western Highlands')
 };
 
