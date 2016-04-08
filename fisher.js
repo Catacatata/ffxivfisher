@@ -28132,7 +28132,17 @@ ff.model.FishingTackleEnum = {
   'NORTHERN_KRILL': new ff.model.FishingTackle(
       'Northern Krill', ff.model.FishingTackle.Type.BAIT, 50, 1042),
   'BALLOON_BUG': new ff.model.FishingTackle(
-      'Balloon Bug', ff.model.FishingTackle.Type.BAIT, 50, 1043)
+      'Balloon Bug', ff.model.FishingTackle.Type.BAIT, 50, 1043),
+
+  // Heavensward
+  'FIEND_WORM': new ff.model.FishingTackle('Fiend Worm', ff.model.FishingTackle.Type.BAIT, 145, 1050),
+  'STONEFLY_NYMPH': new ff.model.FishingTackle('Stonefly Nymph', ff.model.FishingTackle.Type.BAIT, 120, 1044),
+  'BLADED_STEEL_JIG': new ff.model.FishingTackle('Bladed Steel Jig', ff.model.FishingTackle.Type.LURE, 150, 1047),
+  'BRUTE_LEECH': new ff.model.FishingTackle('Brute Leech', ff.model.FishingTackle.Type.BAIT, 180, 1051),
+  'RED_BALLOON': new ff.model.FishingTackle('Red Balloon', ff.model.FishingTackle.Type.BAIT, 130, 1048),
+  'GOBLIN_JIG': new ff.model.FishingTackle('Goblin Jig', ff.model.FishingTackle.Type.LURE, 145, 1046),
+  'GIANT_CRANE_FLY': new ff.model.FishingTackle('Giant Crane Fly', ff.model.FishingTackle.Type.BAIT, 180, 1052),
+  'PURSE_WEB_SPIDER': new ff.model.FishingTackle('Purse Web Spider', ff.model.FishingTackle.Type.BAIT, 136, 1045)
 };
 
 goog.provide('ff.model.Mooch');
