@@ -1839,7 +1839,7 @@ var ffStaticFish = [{
         "endHour": 24,
         "location": "THE_HUNDRED_THROES",
         "bestCatchPath": [{
-            "fishingTackle": "BRUTE LEECH"
+            "fishingTackle": "BRUTE_LEECH"
         }],
         "predatorCount": 0,
         "cbhId": 440
