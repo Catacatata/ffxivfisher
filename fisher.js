@@ -27921,7 +27921,7 @@ ff.model.Image.getUrl = function(subPath, name) {
       .replace(/\s/g, '_')
       .replace(/\'/g, '')
       .toLowerCase();
-  return '/images/' + subPath + '/' + imageName + '.png';
+  return 'images/' + subPath + '/' + imageName + '.png';
 };
 
 goog.provide('ff.model.CatchPathPart');
@@ -40780,7 +40780,7 @@ ff.service.WeatherService.prototype.calculateWeather = function() {
 	eTime.setUTCHours((parseInt(eTime.getUTCHours() / 8) * 8) - 16); // Multiple of 8, back two periods.
 
 	var forecastTargets = [];
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < 6; i++) {
 		eTime.setUTCHours(eTime.getUTCHours() + 8);
 		forecastTargets.push(this.calculateForecastTarget(this.eorzeaToLocal(eTime)));
 	}
