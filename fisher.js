@@ -66928,7 +66928,7 @@ ff.fisher.ui.soy.ROOT = function(opt_data, opt_ignored) {
  * @notypecheck
  */
 ff.fisher.ui.soy.HEADER = function(opt_data, opt_ignored) {
-  return '<div class="ff-fisher-header ff-card"><div class="ff-fisher-header-clock-label">Eorzean Time:&nbsp;</div><div id="' + soy.$$escapeHtml(opt_data.ids.CLOCK_CONTAINER) + '" class="ff-fisher-header-clock"></div><div id="' + soy.$$escapeHtml(opt_data.ids.NEW_FISH_BUTTON_CONTAINER) + '" class="ff-fisher-header-new-fish"></div></div>';
+  return '<div class="ff-fisher-header ff-card"><a id="credits-link" href="credits.html">Credits</a><div class="ff-fisher-header-clock-label">Eorzean Time:&nbsp;</div><div id="' + soy.$$escapeHtml(opt_data.ids.CLOCK_CONTAINER) + '" class="ff-fisher-header-clock"></div><div id="' + soy.$$escapeHtml(opt_data.ids.NEW_FISH_BUTTON_CONTAINER) + '" class="ff-fisher-header-new-fish"></div></div>';
 };
 
 
