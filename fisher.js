@@ -40812,8 +40812,6 @@ ff.service.WeatherService.prototype.calculateWeather = function() {
  * @private
  */
 ff.service.WeatherService.prototype.onWeatherLoaded_ = function(json) {
-  goog.log.info(this.logger, 'Weather arrived from server.');
-
   var eorzeaDate = this.eorzeaTime_.getCurrentEorzeaDate();
   var currentHour =
       eorzeaDate.getUTCHours() + (eorzeaDate.getUTCMinutes() / 60.0);
