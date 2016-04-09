@@ -40803,7 +40803,7 @@ ff.service.WeatherService.prototype.calculateWeather = function() {
 		weatherMap[area.getClientIdentifier()] = weather;
 	}
 
-	return { a: weatherMap, b: startHour - 1 };
+	return { a: weatherMap, b: startHour };
 };
 
 /**
