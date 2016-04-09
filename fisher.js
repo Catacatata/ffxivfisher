@@ -40773,7 +40773,7 @@ ff.service.WeatherService.prototype.calculateForecastTarget = function(lDate) {
 
 ff.service.WeatherService.prototype.calculateWeather = function() {
 	// Calculate the next 5 forecast targets.
-	var eTime = this.localToEorzea(new Date());
+  var eTime = this.eorzeaTime_.getCurrentEorzeaDate().date;
 	eTime.setUTCMinutes(0);
 	eTime.setUTCSeconds(0);
 	var startHour = eTime.getUTCHours();
