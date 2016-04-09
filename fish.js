@@ -1790,6 +1790,21 @@ var ffStaticFish = [{
         "predatorCount": 0,
         "cbhId": 402
     }, {
+        "key": "feec8cfd1cf641cc88f7fb6eef74c4cc",
+        "name": "Caiman",
+        "previousWeatherSet": [],
+        "weatherSet": [],
+        "startHour": 18,
+        "endHour": 21,
+        "location": "THE_IRON_FEAST",
+        "bestCatchPath": [{
+            "fishingTackle": "BLADED_STEEL_JIG"
+        }, {
+            "fishName": "Blueclaw Shrimp"
+        }],
+        "predatorCount": 0,
+        "cbhId": 402
+    }, {
         "key": "104c4020125149f1b687de8203fe5b3f",
         "name": "Capelin",
         "previousWeatherSet": [],
