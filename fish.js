@@ -1604,7 +1604,7 @@ var ffStaticFish = [{
             "fishName": "Wahoo"
         }],
         "predator": "Wahoo",
-        "predatorCount": 5,
+        "predatorCount": 6,
         "cbhId": 300
     }, {
         "key": "ag1zfmZmeGl2ZmlzaGVychELEgRGaXNoGICAgIDtrZILDA",
