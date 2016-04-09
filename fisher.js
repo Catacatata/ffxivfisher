@@ -55224,7 +55224,7 @@ goog.addSingletonGetter(ff.fisher.ui.UpdateTimer);
  * @const
  * @private
  */
-ff.fisher.ui.UpdateTimer.UPDATE_INTERVAL_MS_ = 10 * 1000;
+ff.fisher.ui.UpdateTimer.UPDATE_INTERVAL_MS_ = 3 * 1000;
 /**
  * Renders a time component.
  */
@@ -55516,7 +55516,10 @@ ff.fisher.ui.fish.FishTime.prototype.toPixels_ = function(ms) {
  * @private
  */
 ff.fisher.ui.fish.FishTime.prototype.getWidth_ = function() {
-  return this.getElement().offsetWidth - 2; // -2 for borders
+	// Hardcoded constant for speed.  Asking for offsetWidth here forces reflows
+	// which causes the site to stutter badly.
+	return 300; 
+  //return this.getElement().offsetWidth - 2; // -2 for borders
 };
 
 
