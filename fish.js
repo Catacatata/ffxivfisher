@@ -2125,4 +2125,460 @@ var ffStaticFish = [{
     }],
     "predatorCount": 0,
     "cbhId": 321
+}, {
+    "key": "e5d3ae882dba4146b2dd24b8f17f572c",
+    "name": "Armored Catfish",
+    "previousWeatherSet": [],
+    "weatherSet": ["FOG", "OVERCAST"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "UPPER_THALIAK_RIVER",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 460
+}, {
+    "key": "402d9fee13014474b142c5b136902761",
+    "name": "Mountain Kraken",
+    "previousWeatherSet": [],
+    "weatherSet": ["SNOW", "BLIZZARDS", "FOG", "OVERCAST"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "SOUTH_BANEPOOL",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 459
+}, {
+    "key": "efee1fd8f40747d996d3a512c693d150",
+    "name": "Oliphant's Trunk",
+    "previousWeatherSet": [],
+    "weatherSet": ["THUNDER"],
+    "startHour": 18,
+    "endHour": 23,
+    "location": "HYPERSTELLAR_DOWNCONVERTER",
+    "bestCatchPath": [{
+        "fishingTackle": "FIEND_WORM"
+    }],
+    "predatorCount": 0,
+    "cbhId": 458
+}, {
+    "key": "8bd6acaa90094086b61579e1138c421c",
+    "name": "Fleece Stingray",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "CLOUDTOP",
+    "bestCatchPath": [{
+        "fishingTackle": "GIANT_CRANE_FLY"
+    }],
+    "predatorCount": 0,
+    "cbhId": 453
+}, {
+    "key": "ff6d6f3d60964da39868c5653e56e000",
+    "name": "Gnomefish",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR", "RAIN", "SHOWERS"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "QUICKSPILL_DELTA",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 452
+}, {
+    "key": "493484a1cfa04faab8d7714bdfc55771",
+    "name": "Goblin Bass",
+    "previousWeatherSet": [],
+    "weatherSet": ["OVERCAST", "FOG"],
+    "startHour": 0,
+    "endHour": 5,
+    "location": "MIDDLE_THALIAK_RIVER",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 443
+}, {
+    "key": "0f5b845005a64148aecbffadd30865ac",
+    "name": "Sunsail",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 15,
+    "endHour": 16,
+    "location": "LANDLORD_COLONY",
+    "bestCatchPath": [{
+        "fishingTackle": "GIANT_CRANE_FLY"
+    }],
+    "predatorCount": 0,
+    "cbhId": 442
+}, {
+    "key": "ac27ec36b95e4a24bb9789ee58cb95e5",
+    "name": "Heavens Coral",
+    "previousWeatherSet": [],
+    "weatherSet": ["CLEAR", "FAIR"],
+    "startHour": 0,
+    "endHour": 5,
+    "location": "MOK_OOGL_ISLAND",
+    "bestCatchPath": [{
+        "fishingTackle": "GIANT_CRANE_FLY"
+    }],
+    "predatorCount": 0,
+    "cbhId": 441
+}, {
+    "key": "0b896b39e7754702970d0857f93893ca",
+    "name": "Coerthan Clione",
+    "previousWeatherSet": [],
+    "weatherSet": ["BLIZZARDS"],
+    "startHour": 0,
+    "endHour": 2,
+    "location": "UNFROZEN_POND",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 439
+}, {
+    "key": "fb2b56f8d1c44a65bfdcb9f6bfbb1416",
+    "name": "Functional Proto Hropken",
+    "previousWeatherSet": [],
+    "weatherSet": ["THUNDER"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THE_FLAGSHIP",
+    "bestCatchPath": [{
+        "fishingTackle": "FIEND_WORM"
+    }, {
+        "fishName": "Platinum Fish"
+    }],
+    "predatorCount": 0,
+    "cbhId": 438
+}, {
+    "key": "509bb8165f8e4182ae57c6ad4e8fc519",
+    "name": "Starflower",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "MOK_OOGL_ISLAND",
+    "bestCatchPath": [{
+        "fishingTackle": "RED_BALLOON"
+    }],
+    "predatorCount": 0,
+    "cbhId": 323
+}, {
+    "key": "627b7cf60aa041648e0ea48312a9a837",
+    "name": "Berserker Betta",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "MIDDLE_THALIAK_RIVER",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 436
+}, {
+    "key": "77481db5de1f4a79bbc9b412df38f076",
+    "name": "Vampiric Tapestry",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "MOK_OOGL_ISLAND",
+    "bestCatchPath": [{
+        "fishingTackle": "GIANT_CRANE_FLY"
+    }],
+    "predatorCount": 0,
+    "cbhId": 434
+}, {
+    "key": "8b31919e43be4f4daced4de95df0d807",
+    "name": "Lavalord",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 10,
+    "endHour": 16,
+    "location": "HALO",
+    "bestCatchPath": [{
+        "fishingTackle": "MAGMA_WORM"
+    }, {
+        "fishName": "Granite Crab"
+    }],
+    "predatorCount": 0,
+    "cbhId": 432
+}, {
+    "key": "352afe6ffd7949f2bfbfe6c9ca59efa2",
+    "name": "Catkiller",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THE_EDDIES",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 429
+}, {
+    "key": "aa7e3622a7594a6e8dac182fe5cfd5e5",
+    "name": "Jeweled Jellyfish",
+    "previousWeatherSet": [],
+    "weatherSet": ["THUNDER", "FAIR", "OVERCAST"],
+    "startHour": 20,
+    "endHour": 3,
+    "location": "THE_FLAGSHIP",
+    "bestCatchPath": [{
+        "fishingTackle": "FIEND_WORM"
+    }, {
+        "fishName": "Platinum Fish"
+    }],
+    "predatorCount": 0,
+    "cbhId": 416
+}, {
+    "key": "28645e16f4af4b88bf9a1ecf86dda2fe",
+    "name": "Oil Eel",
+    "previousWeatherSet": [],
+    "weatherSet": ["THUNDER"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THE_FLAGSHIP",
+    "bestCatchPath": [{
+        "fishingTackle": "FIEND_WORM"
+    }, {
+        "fishName": "Platinum Fish"
+    }],
+    "predatorCount": 0,
+    "cbhId": 415
+}, {
+    "key": "9844b6e164514e6b9d76520ad77b162e",
+    "name": "Moogle Spirit",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "MOK_OOGL_ISLAND",
+    "bestCatchPath": [{
+        "fishingTackle": "GIANT_CRANE_FLY"
+    }],
+    "predatorCount": 0,
+    "cbhId": 414
+}, {
+    "key": "eece56fb26874632b91c06c0364eaeb6",
+    "name": "Blood Skipper",
+    "previousWeatherSet": [],
+    "weatherSet": ["THUNDER"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "ALPHA_QUADRANT",
+    "bestCatchPath": [{
+        "fishingTackle": "FIEND_WORM"
+    }],
+    "predatorCount": 0,
+    "cbhId": 412
+}, {
+    "key": "e21dcae71f3a4561af04b1583686954d",
+    "name": "Euphotic Pirarucu",
+    "previousWeatherSet": [],
+    "weatherSet": ["OVERCAST"],
+    "startHour": 18,
+    "endHour": 2,
+    "location": "DELTA_QUADRANT",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 403
+}, {
+    "key": "3a1d971ce84a495db8d7eab3a846fe85",
+    "name": "Warballoon",
+    "previousWeatherSet": [],
+    "weatherSet": ["FAIR", "CLEAR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "GREYTAIL_FALLS",
+    "bestCatchPath": [{
+        "fishingTackle": "GIANT_CRANE_FLY"
+    }, {
+        "fishName": "Skyworm"
+    }],
+    "predatorCount": 0,
+    "cbhId": 399
+}, {
+    "key": "77d1ab524e03419a87834b35560a1657",
+    "name": "Albino Octopus",
+    "previousWeatherSet": [],
+    "weatherSet": [],
+    "startHour": 8,
+    "endHour": 17,
+    "location": "UNFROZEN_POND",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 396
+}, {
+    "key": "cc40a56ee800433dac1a489e66126df5",
+    "name": "Brown Bolo",
+    "previousWeatherSet": [],
+    "weatherSet": ["OVERCAST"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THARL_OOM_KHASH",
+    "bestCatchPath": [{
+        "fishingTackle": "RED_BALLOON"
+    }],
+    "predatorCount": 0,
+    "cbhId": 389
+}, {
+    "key": "cb5ef875b3d8404fac17cdf9f7e9f218",
+    "name": "Magma Louse",
+    "previousWeatherSet": [],
+    "weatherSet": [],
+    "startHour": 18,
+    "endHour": 5,
+    "location": "ANYX_OLD",
+    "bestCatchPath": [{
+        "fishingTackle": "MAGMA_WORM"
+    }, {
+        "fishName": "Granite Crab"
+    }],
+    "predatorCount": 0,
+    "cbhId": 386
+}, {
+    "key": "4fb8bef28d9a4e29ae9904ebcd961d4e",
+    "name": "Rime Eater",
+    "previousWeatherSet": [],
+    "weatherSet": ["SNOW", "BLIZZARDS"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "GREYTAIL_FALLS",
+    "bestCatchPath": [{
+        "fishingTackle": "RED_BALLOON"
+    }, {
+        "fishName": "Glacier Core"
+    }],
+    "predatorCount": 0,
+    "cbhId": 366
+}, {
+    "key": "b8faec42735c48c885998362f5a49e88",
+    "name": "Mercy Staff",
+    "previousWeatherSet": [],
+    "weatherSet": ["SNOW", "BLIZZARDS"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "WEST_BANEPOOL",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 365
+}, {
+    "key": "2e28d7ff69bb466892a617657d52ce82",
+    "name": "Snowcaller",
+    "previousWeatherSet": [],
+    "weatherSet": ["SNOW", "BLIZZARDS"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "WEST_BANEPOOL",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 363
+}, {
+    "key": "09033fe5322d4139b950a6f1d7b72486",
+    "name": "Coerthan Puffer",
+    "previousWeatherSet": [],
+    "weatherSet": ["SNOW", "BLIZZARDS"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "RIVERSMEET",
+    "bestCatchPath": [{
+        "fishingTackle": "PURSE_WEB_SPIDER"
+    }],
+    "predatorCount": 0,
+    "cbhId": 362
+}, {
+    "key": "02a0af2fb48942d99fd97026650313f2",
+    "name": "Lungfish",
+    "previousWeatherSet": [],
+    "weatherSet": ["OVERCAST"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THE_PAPPUS_TREE",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 351
+}, {
+    "key": "db4231c7f83743558fe5332278f61f69",
+    "name": "Vanuhead",
+    "previousWeatherSet": [],
+    "weatherSet": ["CLEAR", "FAIR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THE_EDDIES",
+    "bestCatchPath": [{
+        "fishingTackle": "BLADED_STEEL_JIG"
+    }],
+    "predatorCount": 0,
+    "cbhId": 349
+}, {
+    "key": "aea6e92660854004a770d46dd7401a00",
+    "name": "Storm Core",
+    "previousWeatherSet": [],
+    "weatherSet": ["OVERCAST", "FOG", "WIND"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THE_BLUE_WINDOW",
+    "bestCatchPath": [{
+        "fishingTackle": "RED_BALLOON"
+    }],
+    "predatorCount": 0,
+    "cbhId": 346
+}, {
+    "key": "6bd9f46fd1d548a5a1ed799056fa9763",
+    "name": "Kissing Fish",
+    "previousWeatherSet": [],
+    "weatherSet": [],
+    "startHour": 9,
+    "endHour": 2,
+    "location": "THARL_OOM_KHASH",
+    "bestCatchPath": [{
+        "fishingTackle": "BLADED_STEEL_JIG"
+    }],
+    "predatorCount": 0,
+    "cbhId": 343
+}, {
+    "key": "42789959f125497eb75c2e3ba3b06b44",
+    "name": "Grass Carp",
+    "previousWeatherSet": [],
+    "weatherSet": ["DUST_STORMS", "OVERCAST", "FOG"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THE_HUNDRED_THROES",
+    "bestCatchPath": [{
+        "fishingTackle": "BLADED_STEEL_JIG"
+    }],
+    "predatorCount": 0,
+    "cbhId": 340
+}, {
+    "key": "b3217d21bf2e41aa8e3ac2e5211d456c",
+    "name": "Hotrod",
+    "previousWeatherSet": [],
+    "weatherSet": ["SNOW", "BLIZZARDS"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "CLEARPOOL",
+    "bestCatchPath": [{
+        "fishingTackle": "BRUTE_LEECH"
+    }],
+    "predatorCount": 0,
+    "cbhId": 327
 }];

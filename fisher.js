@@ -28142,7 +28142,8 @@ ff.model.FishingTackleEnum = {
   'RED_BALLOON': new ff.model.FishingTackle('Red Balloon', ff.model.FishingTackle.Type.BAIT, 130, 1048),
   'GOBLIN_JIG': new ff.model.FishingTackle('Goblin Jig', ff.model.FishingTackle.Type.LURE, 145, 1046),
   'GIANT_CRANE_FLY': new ff.model.FishingTackle('Giant Crane Fly', ff.model.FishingTackle.Type.BAIT, 180, 1052),
-  'PURSE_WEB_SPIDER': new ff.model.FishingTackle('Purse Web Spider', ff.model.FishingTackle.Type.BAIT, 136, 1045)
+  'PURSE_WEB_SPIDER': new ff.model.FishingTackle('Purse Web Spider', ff.model.FishingTackle.Type.BAIT, 136, 1045),
+  'MAGMA_WORM': new ff.model.FishingTackle('Magma Worm', ff.model.FishingTackle.Type.BAIT, 136, 1049)
 };
 
 goog.provide('ff.model.Mooch');
@@ -39475,7 +39476,20 @@ ff.model.LocationEnum = {
 	'THE_HABISPHERE': new ff.model.Location(ff.model.AreaEnum.AZYS_LLA, 'The Habisphere', 60206),
 	'MIDDLE_THALIAK_RIVER': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_HINTERLANDS, 'Middle Thaliak River', 70204),
 	'THE_PAPPUS_TREE': new ff.model.Location(ff.model.AreaEnum.AZYS_LLA, 'The Pappus Tree', 60205),
-	'THE_SMOLDERING_WASTES': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_FORELANDS, 'The Smoldering Wastes', 70103)
+	'THE_SMOLDERING_WASTES': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_FORELANDS, 'The Smoldering Wastes', 70103),
+  'MOK_OOGL_ISLAND': new ff.model.Location(ff.model.AreaEnum.SEA_OF_CLOUDS, 'Mok Oogl Island', 60105),
+  'HALO': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_FORELANDS, 'Halo', 70108),
+  'ALPHA_QUADRANT': new ff.model.Location(ff.model.AreaEnum.AZYS_LLA, 'Alpha Quadrant', 60201),
+  'DELTA_QUADRANT': new ff.model.Location(ff.model.AreaEnum.AZYS_LLA, 'Delta Quadrant', 60204),
+  'SOUTH_BANEPOOL': new ff.model.Location(ff.model.AreaEnum.COERTHAS_WESTERN_HIGHLANDS, 'South Banepool', 40206),
+  'HYPERSTELLAR_DOWNCONVERTER': new ff.model.Location(ff.model.AreaEnum.AZYS_LLA, 'Hyperstellar Downconverter', 60203),
+  'CLOUDTOP': new ff.model.Location(ff.model.AreaEnum.SEA_OF_CLOUDS, 'Cloudtop', 60103),
+  'QUICKSPILL_DELTA': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_HINTERLANDS, 'Quickspill Delta', 70202),
+  'LANDLORD_COLONY': new ff.model.Location(ff.model.AreaEnum.CHURNING_MISTS, 'Landlord Colony', 70304),
+  'THE_EDDIES': new ff.model.Location(ff.model.AreaEnum.SEA_OF_CLOUDS, 'The Eddies', 60102),
+  'THE_BLUE_WINDOW': new ff.model.Location(ff.model.AreaEnum.SEA_OF_CLOUDS, 'The Blue Window', 60104),
+  'RIVERSMEET': new ff.model.Location(ff.model.AreaEnum.COERTHAS_WESTERN_HIGHLANDS, 'Riversmeet', 40201),
+  'ANYX_OLD': new ff.model.Location(ff.model.AreaEnum.DRAVANIAN_FORELANDS, 'Anyx Old', 70107)
 };
 // Copyright 2006 The Closure Library Authors. All Rights Reserved.
 //
