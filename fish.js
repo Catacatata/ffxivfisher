@@ -2581,4 +2581,127 @@ var ffStaticFish = [{
     }],
     "predatorCount": 0,
     "cbhId": 327
+}, {
+    "key": "1642398f764f4bdf935ffb609158ae69",
+    "name": "Giant Donko",
+    "previousWeatherSet": [],
+    "weatherSet": ["FOG", "OVERCAST", "CLEAr", "FAIR", "RAIN"],
+    "startHour": 4,
+    "endHour": 12,
+    "location": "THE_LONG_CLIMB",
+    "bestCatchPath": [{
+        "fishingTackle": "SPINNERBAIT"
+    }],
+    "predatorCount": 0,
+    "cbhId": 157
+}, {
+    "key": "dee973c5c34742bd95ec74163ab90e79",
+    "name": "Coelacanth",
+    "previousWeatherSet": [],
+    "weatherSet": [],
+    "startHour": 18,
+    "endHour": 5,
+    "location": "SOUTH_UMBRAL_ISLES",
+    "bestCatchPath": [{
+        "fishingTackle": "STEEL_JIG"
+    }, {
+        "fishName": "Fullmoon Sardine"
+    }],
+    "predatorCount": 0,
+    "cbhId": 166
+}, {
+    "key": "51cb77701f4d42279309d00677b54f58",
+    "name": "Cadaver Carp",
+    "previousWeatherSet": [],
+    "weatherSet": ["GLOOM"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "THE_TANGLE",
+    "bestCatchPath": [{
+        "fishingTackle": "RAINBOW_SPOON_LURE"
+    }],
+    "predatorCount": 0,
+    "cbhId": 167
+}, {
+    "key": "028948f9b8ac4768929e854895e4730c",
+    "name": "Mushroom Crab",
+    "previousWeatherSet": [],
+    "weatherSet": ["FOG", "OVERCAST"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "SYLPHLANDS",
+    "bestCatchPath": [{
+        "fishingTackle": "SPINNER"
+    }, {
+        "fishName": "Common Sculpin"
+    }],
+    "predatorCount": 0,
+    "cbhId": 173
+}, {
+    "key": "dd707e0de5d54dc895e970adc76b30cf",
+    "name": "Judgment Staff",
+    "previousWeatherSet": [],
+    "weatherSet": ["THUNDER", "THUNDERSTORMS"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "ROOTSLAKE",
+    "bestCatchPath": [{
+        "fishingTackle": "CADDISFLY_LARVA"
+    }],
+    "predatorCount": 0,
+    "cbhId": 174
+}, {
+    "key": "d68ae7f030094e18baf2129ded0031b4",
+    "name": "Rock Lobster",
+    "previousWeatherSet": [],
+    "weatherSet": [],
+    "startHour": 17,
+    "endHour": 21,
+    "location": "CRESCENT_COVE",
+    "bestCatchPath": [{
+        "fishingTackle": "NORTHERN_KRILL"
+    }],
+    "predatorCount": 0,
+    "cbhId": 149
+}, {
+    "key": "0b3a7ea647bb4048b1616c6a122277a2",
+    "name": "Thunderbolt Sculpin",
+    "previousWeatherSet": [],
+    "weatherSet": ["RAIN", "SHOWERS"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "RAINCATCHER_GULLY",
+    "bestCatchPath": [{
+        "fishingTackle": "SPINNER"
+    }],
+    "predatorCount": 0,
+    "cbhId": 113
+}, {
+    "key": "12312f3757154c72b06d94ae3d983085",
+    "name": "Paglth'an Discus",
+    "previousWeatherSet": [],
+    "weatherSet": ["HEAT_WAVE", "FAIR", "CLEAR"],
+    "startHour": 0,
+    "endHour": 24,
+    "location": "ZAHARAK",
+    "bestCatchPath": [{
+        "fishingTackle": "GLOWWORM"
+    }],
+    "predatorCount": 0,
+    "cbhId": 140
+}, {
+    "key": "acfe61720f7c42e58945b0c5bcaf9b7f",
+    "name": "Nautilus",
+    "previousWeatherSet": [],
+    "weatherSet": [],
+    "startHour": 18,
+    "endHour": 6,
+    "location": "SOUTH_UMBRAL_ISLES",
+    "bestCatchPath": [{
+        "fishingTackle": "STEEL_JIG"
+    }, {
+        "fishName": "Fullmoon Sardine"
+    }],
+    "predatorCount": 0,
+    "cbhId": 124
 }];

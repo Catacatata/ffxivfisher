@@ -39128,18 +39128,18 @@ ff.model.AreaEnum = {
   // Coerthas
   'COERTHAS_CENTRAL_HIGHLANDS': new ff.model.Area(
       22, ff.model.Region.COERTHAS, 'Coerthas Central Highlands'),
+  'COERTHAS_WESTERN_HIGHLANDS': new ff.model.Area(29, ff.model.Region.COERTHAS, 'Coerthas Western Highlands'),
 
   // Mor Dhona
   'MOR_DHONA': new ff.model.Area(
       23, ff.model.Region.MOR_DHONA, 'Mor Dhona'),
 
   // Heavensward
-  'AZYS_LLA': new ff.model.Area(24, ff.model.Region.ABALATHIAS_SPINE, 'Azys Lla'),
   'SEA_OF_CLOUDS': new ff.model.Area(25, ff.model.Region.ABALATHIAS_SPINE, 'The Sea of Clouds'),
   'DRAVANIAN_FORELANDS': new ff.model.Area(26, ff.model.Region.DRAVANIA, 'The Dravanian Forelands'),
   'DRAVANIAN_HINTERLANDS': new ff.model.Area(27, ff.model.Region.DRAVANIA, 'The Dravanian Hinterlands'),
   'CHURNING_MISTS': new ff.model.Area(28, ff.model.Region.DRAVANIA, 'The Churning Mists'),
-  'COERTHAS_WESTERN_HIGHLANDS': new ff.model.Area(29, ff.model.Region.COERTHAS, 'Coerthas Western Highlands')
+  'AZYS_LLA': new ff.model.Area(24, ff.model.Region.ABALATHIAS_SPINE, 'Azys Lla')
 };
 
 goog.provide('ff.model.Location');
