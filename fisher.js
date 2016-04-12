@@ -38906,70 +38906,6 @@ goog.dom.DomHelper.prototype.getAncestorByClass =
  *     no match.
  */
 goog.dom.DomHelper.prototype.getAncestor = goog.dom.getAncestor;
-/**
- * Service for interacting with cookies.
- */
-
-goog.provide('ff.service.CookieService');
-
-goog.require('goog.dom');
-goog.require('goog.log');
-goog.require('goog.net.Cookies');
-
-
-
-/**
- * @constructor
- */
-ff.service.CookieService = function() {
-
-  /** @protected {goog.log.Logger} */
-  this.logger = goog.log.getLogger('ff.service.CookieService');
-
-  /** @private {!goog.net.Cookies} */
-  this.cookies_ = new goog.net.Cookies(goog.dom.getDocument());
-};
-goog.addSingletonGetter(ff.service.CookieService);
-
-
-/**
- * Arbitrarily long expiration to make sure cookies are persistent.
- * @private
- * @const
- * @type {number}
- */
-ff.service.CookieService.EXPIRATION_ = 60 * 60 * 24 * 30 * 12 * 10;
-
-
-/**
- * Gets the cookie identified by the name.
- * @param {string} cookieName
- * @param {string=} opt_default If not found this is returned instead.
- * @return {string|undefined}
- */
-ff.service.CookieService.prototype.get = function(cookieName, opt_default) {
-  return this.cookies_.get(cookieName, opt_default);
-};
-
-
-/**
- * Sets the new cookie value.
- * @param {string} cookieName
- * @param {string} value
- */
-ff.service.CookieService.prototype.set = function(cookieName, value) {
-  // Set all cookies as persistent cookies.
-  this.cookies_.set(cookieName, value, ff.service.CookieService.EXPIRATION_);
-};
-
-
-/**
- * Removes the given cooke.
- * @param {string} cookieName
- */
-ff.service.CookieService.prototype.remove = function(cookieName) {
-  this.cookies_.remove(cookieName);
-};
 
 goog.provide('ff.model.Region');
 
@@ -39684,7 +39620,6 @@ goog.require('ff.model.CatchPath');
 goog.require('ff.model.Image');
 goog.require('ff.model.LocationEnum');
 goog.require('ff.model.WeatherEnum');
-goog.require('ff.service.CookieService');
 goog.require('ff.service.EorzeaTime');
 goog.require('goog.array');
 goog.require('goog.asserts');
@@ -39730,9 +39665,6 @@ ff.model.Fish = function(
 
   /** @protected {goog.log.Logger} */
   this.logger = goog.log.getLogger('ff.model.Fish');
-
-  /** @private {!ff.service.CookieService} */
-  this.cookieService_ = ff.service.CookieService.getInstance();
 
   /** @private {!ff.service.EorzeaTime} */
   this.eorzeaTime_ = ff.service.EorzeaTime.getInstance();
@@ -39974,19 +39906,21 @@ ff.model.Fish.prototype.setUserColor = function(color) {
   if (this.getUserColor() == color) {
     return;
   }
+
   var cookieValue = null;
   if (color == ff.model.Fish.Color.ONE) {
-    cookieValue = '1';
+    cookieValue = 1;
   } else if (color == ff.model.Fish.Color.TWO) {
-    cookieValue = '2';
+    cookieValue = 2;
   } else if (color == ff.model.Fish.Color.THREE) {
-    cookieValue = '3';
+    cookieValue = 3;
   }
-  if (goog.isDefAndNotNull(cookieValue)) {
-    this.cookieService_.set(this.getUserColorKey_(), cookieValue);
-  } else {
-    this.cookieService_.remove(this.getUserColorKey_());
-  }
+
+  if (goog.isDefAndNotNull(cookieValue))
+    ff.fisher.storageService.settings.colors[this.cbhId_] = cookieValue;
+  else
+    delete ff.fisher.storageService.settings.colors[this.cbhId_];
+  ff.fisher.storageService.save();
   this.dispatchEvent(ff.model.Fish.EventType.COLOR_CHANGED);
 };
 
@@ -39996,40 +39930,16 @@ ff.model.Fish.prototype.setUserColor = function(color) {
  * @return {!ff.model.Fish.Color}
  */
 ff.model.Fish.prototype.getUserColor = function() {
-  var colorFromCookie = this.cookieService_.get(this.getUserColorKey_(), '');
-  if (colorFromCookie == '1') {
+  var colorFromCookie = ff.fisher.storageService.settings.colors[this.cbhId_];
+  if (colorFromCookie == 1) {
     return ff.model.Fish.Color.ONE;
-  } else if (colorFromCookie == '2') {
+  } else if (colorFromCookie == 2) {
     return ff.model.Fish.Color.TWO;
-  } else if (colorFromCookie == '3') {
+  } else if (colorFromCookie == 3) {
     return ff.model.Fish.Color.THREE;
   }
   return ff.model.Fish.Color.CLEAR;
 };
-
-
-/**
- * Only keep around for migration.
- * @return {?ff.model.Fish.Color}
- */
-ff.model.Fish.prototype.getLegacyUserColor = function() {
-  var value = this.cookieService_.get(this.getLegacyUserColorKey_());
-  if (goog.isDefAndNotNull(value)) {
-    return /** @type {!ff.model.Fish.Color} */ (
-        ff.stringValueToEnum(value, ff.model.Fish.Color));
-  }
-  return null;
-};
-
-
-/**
- * Removes the legacy cookie used for storing fish color.  Only call this
- * function once the data has been stored elsewhere.
- */
-ff.model.Fish.prototype.removeLegacyUserColorCookie = function() {
-  this.cookieService_.remove(this.getLegacyUserColorKey_());
-};
-
 
 /** @return {string} */
 ff.model.Fish.prototype.getPredator = function() {
@@ -40046,26 +39956,6 @@ ff.model.Fish.prototype.getPredatorCount = function() {
 /** @return {string} */
 ff.model.Fish.prototype.getPredatorImageUrl = function() {
   return ff.model.Image.getUrl('fish/30_30', this.predator_);
-};
-
-
-/**
- * @return {string} The key used to set/get color cookies.
- * @private
- */
-ff.model.Fish.prototype.getUserColorKey_ = function() {
-  // Keep this tiny.
-  return this.cbhId_ + 'c';
-};
-
-
-/**
- * DEPRECATED - way too big.
- * @return {string} The key used to set/get color cookies.
- * @private
- */
-ff.model.Fish.prototype.getLegacyUserColorKey_ = function() {
-  return this.key_ + '_user_color';
 };
 
 
@@ -40486,66 +40376,6 @@ ff.service.FishService.prototype.getFirstVisibleRange_ = function(fish) {
     return goog.math.Range.containsPoint(range, currentTime) ||
         range.start > currentTime;
   });
-};
-/**
- * Service for converting legacy session cookies into persistent cookies.
- */
-
-goog.provide('ff.fisher.ui.CookieFixer');
-
-goog.require('ff.service.FishService');
-goog.require('goog.Disposable');
-goog.require('goog.array');
-goog.require('goog.events.EventHandler');
-goog.require('goog.log');
-
-
-
-/**
- * @constructor
- * @extends {goog.Disposable}
- */
-ff.fisher.ui.CookieFixer = function() {
-
-  /** @protected {goog.log.Logger} */
-  this.logger = goog.log.getLogger('ff.fisher.ui.CookieFixer');
-
-  /** @private {!ff.service.FishService} */
-  this.fishService_ = ff.service.FishService.getInstance();
-
-  this.handler_ = new goog.events.EventHandler(this);
-  this.registerDisposable(this.handler_);
-
-  this.handler_.listen(
-      this.fishService_,
-      ff.service.FishService.EventType.FISH_CHANGED,
-      this.updateFishCookies_);
-};
-goog.inherits(ff.fisher.ui.CookieFixer, goog.Disposable);
-goog.addSingletonGetter(ff.fisher.ui.CookieFixer);
-
-
-/**
- * Mostly a no-op but prevents auto optimizations that might remove this class.
- */
-ff.fisher.ui.CookieFixer.prototype.initialize = function() {
-  goog.log.info(this.logger, 'Initialized.');
-};
-
-
-/**
- * Updates fish cookies by forcing a re-save on each fish.
- * @private
- */
-ff.fisher.ui.CookieFixer.prototype.updateFishCookies_ = function() {
-  goog.array.forEach(this.fishService_.getAll(), function(fish) {
-    var legacyColor = fish.getLegacyUserColor();
-    if (goog.isDefAndNotNull(legacyColor)) {
-      fish.setUserColor(legacyColor);
-      fish.removeLegacyUserColorCookie();
-    }
-  }, this);
-  goog.log.info(this.logger, 'Updated all fish cookies.');
 };
 
 goog.provide('ff.model.WeatherRange');
@@ -41655,7 +41485,6 @@ goog.require('ff');
 goog.require('ff.model.Area');
 goog.require('ff.model.AreaEnum');
 goog.require('ff.model.Fish');
-goog.require('ff.service.CookieService');
 goog.require('goog.events.Event');
 goog.require('goog.events.EventTarget');
 goog.require('goog.json');
@@ -41674,9 +41503,6 @@ ff.fisher.ui.State = function() {
 
   /** @protected {goog.log.Logger} */
   this.logger = goog.log.getLogger('ff.fisher.ui.State');
-
-  /** @private {!ff.service.CookieService} */
-  this.cookieService_ = ff.service.CookieService.getInstance();
 
   /**
    * Keeps track of which view the user has selected.
@@ -41735,30 +41561,6 @@ ff.fisher.ui.State.Filter = {
 };
 
 
-/**
- * @const
- * @private
- * @type {string}
- */
-ff.fisher.ui.State.COLLAPSE_STATE_ = 'ff_collapse_state';
-
-
-/**
- * @const
- * @private
- * @type {string}
- */
-ff.fisher.ui.State.VIEW_STATE_ = 'ff_view_state';
-
-
-/**
- * @const
- * @private
- * @type {string}
- */
-ff.fisher.ui.State.FILTER_STATE_ = 'ff_filter_state';
-
-
 /** @return {!ff.fisher.ui.State.View} */
 ff.fisher.ui.State.prototype.getView = function() {
   return this.view_;
@@ -41772,7 +41574,8 @@ ff.fisher.ui.State.prototype.getView = function() {
 ff.fisher.ui.State.prototype.setView = function(view) {
   if (this.view_ != view) {
     this.view_ = view;
-    this.cookieService_.set(ff.fisher.ui.State.VIEW_STATE_, view);
+    ff.fisher.storageService.settings.view = view;
+    ff.fisher.storageService.save();
     this.dispatchEvent(new ff.fisher.ui.State.ViewChanged(view));
   }
 };
@@ -41895,7 +41698,7 @@ ff.fisher.ui.State.prototype.initializeFromCookie_ = function() {
  * @private
  */
 ff.fisher.ui.State.prototype.initializeViewState_ = function() {
-  var viewState = this.cookieService_.get(ff.fisher.ui.State.VIEW_STATE_, '');
+  var viewState = ff.fisher.storageService.settings.view;
   if (viewState) {
     var view = /** @type {ff.fisher.ui.State.View} */ (
         ff.stringValueToEnum(viewState, ff.fisher.ui.State.View));
@@ -41912,17 +41715,7 @@ ff.fisher.ui.State.prototype.initializeViewState_ = function() {
  * @private
  */
 ff.fisher.ui.State.prototype.initializeFilterState_ = function() {
-  var cookieState = this.cookieService_.get(
-      ff.fisher.ui.State.FILTER_STATE_, '');
-  var cookieMap = {};
-  if (cookieState) {
-    this.logger.info('Setting filter state map from cookie.');
-    try {
-      cookieMap = JSON.parse(cookieState);
-    } catch (e) {
-      this.logger.severe('Failed to read filter state from the cookie.');
-    }
-  }
+  var cookieMap = ff.fisher.storageService.settings.filter || {};
 
   goog.object.forEach(
       ff.fisher.ui.State.Filter,
@@ -41940,17 +41733,7 @@ ff.fisher.ui.State.prototype.initializeFilterState_ = function() {
  * @private
  */
 ff.fisher.ui.State.prototype.initializeCollapseState_ = function() {
-  var cookieState = this.cookieService_.get(
-      ff.fisher.ui.State.COLLAPSE_STATE_, '');
-  var cookieMap = {};
-  if (cookieState) {
-    this.logger.info('Setting collapse state map from cookie.');
-    try {
-      cookieMap = JSON.parse(cookieState);
-    } catch (e) {
-      this.logger.severe('Failed to read collapse state from the cookie.');
-    }
-  }
+  var cookieMap = ff.fisher.storageService.settings.collapse || {};
 
   goog.object.forEach(
       ff.model.AreaEnum,
@@ -42017,8 +41800,8 @@ ff.fisher.ui.State.prototype.setAreaCollapsed_ = function(area, collapsed) {
   this.areaCollapseMap_[key] = collapsed;
 
   // Save state to a cookie so it's sticky for this user.
-  var mapJson = goog.json.serialize(this.areaCollapseMap_);
-  this.cookieService_.set(ff.fisher.ui.State.COLLAPSE_STATE_, mapJson);
+  ff.fisher.storageService.settings.collapse = this.areaCollapseMap_;
+  ff.fisher.storageService.save();
 
   this.dispatchEvent(new ff.fisher.ui.State.CollapseChanged(area));
 };
@@ -42041,8 +41824,8 @@ ff.fisher.ui.State.prototype.setFilterEnabled_ = function(filter, enabled) {
   this.filterMap_[filter] = enabled;
 
   // Save state to a cookie so it's sticky for this user.
-  var mapJson = goog.json.serialize(this.filterMap_);
-  this.cookieService_.set(ff.fisher.ui.State.FILTER_STATE_, mapJson);
+  ff.fisher.storageService.settings.filter = this.filterMap_;
+  ff.fisher.storageService.save();
 
   this.dispatchEvent(new ff.fisher.ui.State.FilterChanged(filter));
 };
@@ -67869,7 +67652,6 @@ goog.events.EventWrapper.prototype.unlisten = function(src, listener, opt_capt,
 
 goog.provide('ff.fisher.Main');
 
-goog.require('ff.fisher.ui.CookieFixer');
 goog.require('ff.fisher.ui.Root');
 goog.require('ff.model.User');
 goog.require('ff.service.FishService');
@@ -67896,6 +67678,9 @@ ff.fisher.Main = function(userJson) {
   /** @protected {goog.log.Logger} */
   this.logger = goog.log.getLogger('ff.fisher.Main');
 
+  // Load settings
+  ff.fisher.storageService.load();
+
   // Set up logging for the entire application.
   if (!goog.debug.Console.instance) {
     goog.debug.Console.instance = new goog.debug.Console();
@@ -67911,7 +67696,6 @@ ff.fisher.Main = function(userJson) {
   ff.model.User.getInstance().parse(userJson);
   ff.service.WeatherService.getInstance().startPolling();
   ff.service.FishService.getInstance().loadAll();
-  ff.fisher.ui.CookieFixer.getInstance().initialize();
 
   // Create and render the UI.
   var root = new ff.fisher.ui.Root();
@@ -67941,3 +67725,28 @@ ff.fisher.Main.bootstrap = function(userJson) {
 
 // Ensures the symbol will be visible after compiler renaming.
 goog.exportSymbol('ff.fisher.Main.bootstrap', ff.fisher.Main.bootstrap);
+
+ff.fisher.storageService = {
+  settings: {
+    collapsed: {},
+    filter: {},
+    colors: {},
+    view: ''
+  },
+
+  load: function() {
+    if (!localStorage.fisherSettings)
+      return ff.fisher.storageService.settings;
+
+    var settings = JSON.parse(localStorage.fisherSettings);
+    if (settings)
+      ff.fisher.storageService.settings = settings;
+    else
+      settings = ff.fisher.storageService.settings;
+    return settings;
+  },
+
+  save: function() {
+    localStorage.fisherSettings = JSON.stringify(ff.fisher.storageService.settings);
+  }
+};
