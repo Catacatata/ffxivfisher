@@ -2549,7 +2549,7 @@ var ffStaticFish = [{
     "weatherSet": [],
     "startHour": 9,
     "endHour": 2,
-    "location": "THARL_OOM_KHASH",
+    "location": "EIL_TOHM",
     "bestCatchPath": [{
         "fishingTackle": "BLADED_STEEL_JIG"
     }],
