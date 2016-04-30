@@ -2551,7 +2551,7 @@ var ffStaticFish = [{
     "endHour": 2,
     "location": "EIL_TOHM",
     "bestCatchPath": [{
-        "fishingTackle": "BLADED_STEEL_JIG"
+        "fishingTackle": "STONEFLY_NYMPH"
     }],
     "predatorCount": 0,
     "cbhId": 343
